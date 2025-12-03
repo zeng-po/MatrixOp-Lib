@@ -1,30 +1,42 @@
-#include "matrix.h"
-#include<stdio.h>
+#include "linear.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void mat_multiply(double A[3][3], double B[3][3], double C[3][3])
+double** allocate_matrix() {
+    double** M = malloc(3 * sizeof(double*));
+    for (int i = 0; i < 3; i++) {
+        M[i] = malloc(3 * sizeof(double));
+    }
+    return M;
+}
+
+double** mat_multiply(double A[3][3], double B[3][3])
 {
-    int i,j,k;
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
-            C[i][j] = 0;
-            for (k = 0; k < 3; k++)
-            {
+    double** C = allocate_matrix();
+    int i, j, k;
+
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            C[i][j] = 0.0;
+            for (k = 0; k < 3; k++) {
                 C[i][j] += A[i][k] * B[k][j];
             }
         }
     }
+
+    return C;   
 }
 
-void mat_transpose(double A[3][3], double T[3][3])
+double** mat_transpose(double A[3][3])
 {
-    int i,j;
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
+    double** T = allocate_matrix();
+    int i, j;
+
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
             T[i][j] = A[j][i];
         }
     }
+
+    return T;   
 }
