@@ -7,11 +7,11 @@ Hadamard乘法 : VDOT(矩陣A, 矩陣B)
 #include "basic.h"
 #include <stdio.h>
 #include <stdlib.h>
-int** VADD(int A[3][3], int B[3][3])
+double** VADD(double A[3][3], double B[3][3])
 {
-    int** C = malloc(3 * sizeof(int*));
+    double** C = malloc(3 * sizeof(double*));
     for(int i=0 ; i<3 ; i++)
-        C[i] = malloc(3 * sizeof(int));
+        C[i] = malloc(3 * sizeof(double));
     for(int i =0 ; i<3 ; i++)
     {
         for(int j =0 ; j<3 ; j++)
@@ -20,11 +20,11 @@ int** VADD(int A[3][3], int B[3][3])
     return C;
 }
 
-int** VSUB(int A[3][3], int B[3][3])
+double** VSUB(double A[3][3], double B[3][3])
 {
-    int**C = malloc(3 * sizeof(int*));
+    double**C = malloc(3 * sizeof(double*));
     for(int i=0 ; i<3 ; i++)
-        C[i] = malloc(3 * sizeof(int));
+        C[i] = malloc(3 * sizeof(double));
     for(int i =0 ; i<3 ; i++)
     {
         for(int j =0 ; j<3 ; j++)
@@ -33,11 +33,11 @@ int** VSUB(int A[3][3], int B[3][3])
     return C;
 }
 
-int** VDOT(int A[3][3], int B[3][3])
+double** VDOT(double A[3][3], double B[3][3])
 {
-    int**C = malloc(3 * sizeof(int*));
+    double**C = malloc(3 * sizeof(double*));
     for(int i=0 ; i<3 ; i++)
-        C[i] = malloc(3 * sizeof(int));
+        C[i] = malloc(3 * sizeof(double));
     for(int i =0 ; i<3 ; i++)
     {
         for(int j =0 ; j<3 ; j++)

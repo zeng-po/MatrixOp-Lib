@@ -5,7 +5,7 @@
 #ifndef ADVANCED_H
 #define ADVANCED_H
 
-int determinant(int a[3][3]);
-int** adjoint(int a[3][3]);
+double determinant(double a[3][3]);
+double** adjoint(double a[3][3]);
 
 #endif

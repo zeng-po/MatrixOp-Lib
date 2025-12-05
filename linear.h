@@ -1,3 +1,8 @@
+/*
+矩陣相乘 : mat_multiply(矩陣 A , 矩陣 B )
+轉置矩陣 : mat_transpose(矩陣 A )
+*/
+
 #ifndef LINEAR_H
 #define LINEAR_H
 #define SIZE 3

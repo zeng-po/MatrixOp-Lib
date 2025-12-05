@@ -7,26 +7,26 @@
 #include<stdlib.h>
 
 //輔助函式
-int deter(int a, int b, int c, int d)
+double deter(double a, double b, double c, double d)
 {
     return (a*d)-(b*c);
 }
 
 //輔助函式
-void exchange(int* a,int* b)
+void exchange(double* a,double* b)
 {
-	int temp;
+	double temp;
 	temp=*a;
 	*a=*b;
 	*b=temp;
 }
 
-int** adjoint(int a[3][3])
+double** adjoint(double a[3][3])
 {
-	int** adj=(int**)malloc(3*sizeof(int*));
+	double** adj=(double**)malloc(3*sizeof(double*));
 	int i;
 	for(i=0;i<3;i++)
-		adj[i]=(int*)malloc(3*sizeof(int));
+		adj[i]=(double*)malloc(3*sizeof(double));
 
 	adj[0][0]=deter(a[1][1],a[1][2],a[2][1],a[2][2]);
 	adj[0][1]=-deter(a[1][0],a[1][2],a[2][0],a[2][2]);
@@ -46,13 +46,13 @@ int** adjoint(int a[3][3])
 
 	return adj;
 }
-int determinant(int a[3][3])
+double determinant(double a[3][3])
 {
-    int p1 = a[0][0]*a[1][1]*a[2][2];
-    int p2 = a[0][1]*a[1][2]*a[2][0];
-    int p3 = a[1][0]*a[2][1]*a[0][2];
-    int n1 = a[0][2]*a[1][1]*a[2][0];
-    int n2 = a[1][2]*a[2][1]*a[0][0];
-    int n3 = a[1][0]*a[0][1]*a[2][2];
+    double p1 = a[0][0]*a[1][1]*a[2][2];
+    double p2 = a[0][1]*a[1][2]*a[2][0];
+    double p3 = a[1][0]*a[2][1]*a[0][2];
+    double n1 = a[0][2]*a[1][1]*a[2][0];
+    double n2 = a[1][2]*a[2][1]*a[0][0];
+    double n3 = a[1][0]*a[0][1]*a[2][2];
     return p1+p2+p3-n1-n2-n3;
 }
